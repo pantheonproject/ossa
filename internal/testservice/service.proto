@@ -1,0 +1,18 @@
+syntax = "proto3";
+package main;
+
+service Test {
+    rpc AddThing(AddThingRequest) returns (AddThingResponse);
+};
+
+message Thing {
+    string id = 1;
+    string name = 2;
+    int64 data_point = 3;
+};
+
+message AddThingRequest {
+    Thing thing = 1;
+}
+
+message AddThingResponse {};
