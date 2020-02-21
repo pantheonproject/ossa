@@ -1,15 +1,23 @@
-# Binaries for programs and plugins
-*.exe
-*.exe~
-*.dll
-*.so
-*.dylib
+# everything individually but not subdirectories
+*
+!*/
 
-# Test binary, built with `go test -c`
-*.test
+# meat and potatoes
+!*.go
+!*.md
+!*.json
+!*.ps1
+!*.sh
+!*.proto
 
-# Output of the go coverage tool, specifically when used with LiteIDE
-*.out
+# garnish
+.vscode/
+!*.git*
+!*.keep
+!.travis.yml
+!go.mod
+!go.sum
+!LICENSE
 
-# Dependency directories (remove the comment below to include it)
-# vendor/
+# special cases
+!internal/vendor/examples/**
