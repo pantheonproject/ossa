@@ -1,6 +1,12 @@
 syntax = "proto3";
 package ossa;
 
+import "google/protobuf/descriptor.proto";
+
+extend google.protobuf.FieldOptions {
+    bool sensitive = 6574;
+}
+
 // AuditAggregator aggregates audit logs
 service AuditAggregator {
     

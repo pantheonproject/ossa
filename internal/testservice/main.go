@@ -14,7 +14,8 @@ var bindAddress = "localhost:6687"
 
 func main() {
 	// Create the server
-	gserver := grpc.NewServer(grpc.UnaryInterceptor(ossa.UnaryIntercept), grpc.StreamInterceptor(ossa.StreamIntercept))
+	auditor := ossa.NewAuditor(&ossa.StdOutLogger{})
+	gserver := grpc.NewServer(grpc.UnaryInterceptor(auditor.UnaryServerIntercept), grpc.StreamInterceptor(auditor.StreamServerIntercept))
 	s := NewServer(gserver)
 	lis, err := net.Listen("tcp", bindAddress)
 	if err != nil {

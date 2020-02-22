@@ -1,13 +1,15 @@
 syntax = "proto3";
 package main;
 
+import "audit.proto";
+
 service Test {
     rpc AddThing(AddThingRequest) returns (AddThingResponse);
 };
 
 message Thing {
     string id = 1;
-    string name = 2;
+    string name = 2 [(ossa.sensitive)=true];
     int64 data_point = 3;
 };
 
